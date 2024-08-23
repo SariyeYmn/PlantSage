@@ -18,6 +18,8 @@ struct Sign_up: View {
     
     @State private var isLoading = false
     
+    @State private var isSigned = false
+    
     @Environment(\.presentationMode) var dismiss
     
     var body: some View {
@@ -64,6 +66,7 @@ struct Sign_up: View {
                 VStack(spacing: 15, content: {
                     Button{
                         //Sign-up
+                        isLoading.toggle()
                         Auth.auth().createUser(withEmail: email, password: password){
                             (result, error)
                             in
@@ -88,6 +91,8 @@ struct Sign_up: View {
                                                                 
                                 db.collection("USERS").addDocument(data: data)
                                 isLoading.toggle()
+                                
+                                isSigned = true
                             }
                         }
                     }label: {
@@ -100,9 +105,12 @@ struct Sign_up: View {
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 60)
-                    .background(.green)
+                    .background(Color(red: 0.31, green: 0.55, blue: 0.31))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
+                    .navigationDestination(isPresented: $isSigned){
+                        ContentView()
+                    }
                     
                     NavigationLink{
                         Sign_in()

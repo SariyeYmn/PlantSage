@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseCore
+import FirebaseFirestore
 
 struct Sign_in: View {
     
@@ -15,6 +16,10 @@ struct Sign_in: View {
     @State private var  password = ""
     
     @State private var isLoading = false
+    
+    //Now we add new var isSigned so when user successfuly log in then they  wil move to main screen
+    
+    @State private var isSigned = false
     
     @Environment(\.presentationMode) var dismiss
     
@@ -55,6 +60,9 @@ struct Sign_in: View {
                 //Login button
                 VStack(spacing: 15, content: {
                     Button{
+                        
+                        //Here we add isLoading = true because we see progressView not show after click
+                        isLoading = true
                         Auth.auth().signIn(withEmail: email , password: password){(result, error)
                             
                             in
@@ -67,6 +75,32 @@ struct Sign_in: View {
                             }else{
                                 //Now we collect user information move to next view in app
                                 //this we will  do after signup view code
+                                
+                                //here user Successfully sign in so we change isSİgned
+                                
+                                isSigned = true
+                                
+                                let db = Firestore.firestore()
+                                db.collection("USERS").document(result?.user.uid ?? "" ).getDocument{
+                                    document, error
+                                    in
+                                    
+                                    if let document = document , document.exists{
+                                        let name = document.get("User Name") as? String ?? ""
+                                        let email = document.get("Email") as? String ?? ""
+                                        
+                                        //Now we store collected name and email from firestore to local storage
+                                        
+                                        UserDefaults.standard.set(name,forKey: "NAME")
+                                        UserDefaults.standard.set(name,forKey: "EMAIL")
+                                        
+                                        isLoading.toggle()
+                                    }
+                                    else{
+                                        isLoading.toggle()
+                                        print("document no existq")
+                                    }
+                                }
                                 
                             }
                             
@@ -85,6 +119,9 @@ struct Sign_in: View {
                     .background(.green)
                     .clipShape(Capsule())
                     .foregroundColor(.white)
+                    .navigationDestination(isPresented: $isSigned){
+                        ContentView()
+                    }
                     
                     NavigationLink{
                         Sign_up()
@@ -103,3 +140,4 @@ struct Sign_in: View {
 #Preview {
     Sign_in()
 }
+

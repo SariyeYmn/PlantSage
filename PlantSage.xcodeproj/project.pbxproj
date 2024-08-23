@@ -21,6 +21,12 @@
 		E56ACF4E2C77C4BF00A47733 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E56ACF4D2C77C4BF00A47733 /* FirebaseDatabase */; };
 		E56ACF502C77C4CA00A47733 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E56ACF4F2C77C4CA00A47733 /* FirebaseStorage */; };
 		E56ACF522C77C4CF00A47733 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E56ACF512C77C4CF00A47733 /* FirebaseAnalytics */; };
+		E5DB38212C7883AB00F30A41 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB38202C7883AB00F30A41 /* Home.swift */; };
+		E5DB38252C7887E000F30A41 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB38242C7887E000F30A41 /* CategoriesModel.swift */; };
+		E5DB38272C7888FC00F30A41 /* PlantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB38262C7888FC00F30A41 /* PlantsModel.swift */; };
+		E5DB38292C789B0400F30A41 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB38282C789B0400F30A41 /* Plant.swift */; };
+		E5DB382C2C789BC700F30A41 /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB382B2C789BC700F30A41 /* ImageSlider.swift */; };
+		E5DB382F2C78B47C00F30A41 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB382E2C78B47C00F30A41 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		E56ACF3F2C779FEC00A47733 /* Sign-in.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sign-in.swift"; sourceTree = "<group>"; };
 		E56ACF412C77BD2900A47733 /* Sign-up.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sign-up.swift"; sourceTree = "<group>"; };
 		E56ACF452C77C3A300A47733 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5DB38202C7883AB00F30A41 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		E5DB38242C7887E000F30A41 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
+		E5DB38262C7888FC00F30A41 /* PlantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsModel.swift; sourceTree = "<group>"; };
+		E5DB38282C789B0400F30A41 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		E5DB382B2C789BC700F30A41 /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
+		E5DB382E2C78B47C00F30A41 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +84,14 @@
 		E56ACF2B2C77913A00A47733 /* PlantSage */ = {
 			isa = PBXGroup;
 			children = (
-				E56ACF452C77C3A300A47733 /* GoogleService-Info.plist */,
+				E5DB382D2C78B45700F30A41 /* Database */,
+				E5DB382A2C789BA900F30A41 /* Components */,
+				E5DB38232C7887BF00F30A41 /* Models */,
 				E56ACF3A2C77917400A47733 /* Views */,
 				E56ACF2C2C77913A00A47733 /* PlantSageApp.swift */,
 				E56ACF2E2C77913A00A47733 /* ContentView.swift */,
 				E56ACF302C77913B00A47733 /* Assets.xcassets */,
+				E56ACF452C77C3A300A47733 /* GoogleService-Info.plist */,
 				E56ACF322C77913B00A47733 /* Preview Content */,
 			);
 			path = PlantSage;
@@ -97,6 +112,7 @@
 				E56ACF3D2C7791C700A47733 /* Onboarding.swift */,
 				E56ACF3F2C779FEC00A47733 /* Sign-in.swift */,
 				E56ACF412C77BD2900A47733 /* Sign-up.swift */,
+				E5DB38202C7883AB00F30A41 /* Home.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +122,32 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5DB38232C7887BF00F30A41 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5DB38242C7887E000F30A41 /* CategoriesModel.swift */,
+				E5DB38262C7888FC00F30A41 /* PlantsModel.swift */,
+				E5DB38282C789B0400F30A41 /* Plant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5DB382A2C789BA900F30A41 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E5DB382B2C789BC700F30A41 /* ImageSlider.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E5DB382D2C78B45700F30A41 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E5DB382E2C78B47C00F30A41 /* Database.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +234,15 @@
 				E56ACF2F2C77913A00A47733 /* ContentView.swift in Sources */,
 				E56ACF422C77BD2900A47733 /* Sign-up.swift in Sources */,
 				E56ACF3C2C77918400A47733 /* Splash.swift in Sources */,
+				E5DB382C2C789BC700F30A41 /* ImageSlider.swift in Sources */,
 				E56ACF3E2C7791C700A47733 /* Onboarding.swift in Sources */,
 				E56ACF2D2C77913A00A47733 /* PlantSageApp.swift in Sources */,
+				E5DB382F2C78B47C00F30A41 /* Database.swift in Sources */,
+				E5DB38272C7888FC00F30A41 /* PlantsModel.swift in Sources */,
 				E56ACF402C779FEC00A47733 /* Sign-in.swift in Sources */,
+				E5DB38292C789B0400F30A41 /* Plant.swift in Sources */,
+				E5DB38212C7883AB00F30A41 /* Home.swift in Sources */,
+				E5DB38252C7887E000F30A41 /* CategoriesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
